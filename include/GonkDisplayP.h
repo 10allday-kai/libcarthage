@@ -78,7 +78,8 @@ private:
     void CreateFramebufferSurface(android::sp<ANativeWindow>& aNativeWindow,
         android::sp<android::DisplaySurface>& aDisplaySurface,
         uint32_t aWidth, uint32_t aHeight, unsigned int format,
-        HWC2::Display *display, HWC2::Layer *layer);
+        HWC2::Display *display, HWC2::Layer *layer,
+        NativeFramebufferDevice *ExtFBDevice);
 
     void CreateVirtualDisplaySurface(android::IGraphicBufferProducer* aSink,
         android::sp<ANativeWindow>& aNativeWindow,
@@ -103,6 +104,7 @@ private:
     sp<IPower>                    mPower;
     hwc_display_contents_1_t*     mList;
     OnEnabledCallbackType         mEnabledCallback;
+    bool                          mEnableHWCPower;
     bool                          mFBEnabled;
     bool                          mExtFBEnabled;
     android::Mutex                mPrimaryScreenLock;
